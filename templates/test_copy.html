@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/table.css">
+    <script src="../static/JQuery.js"></script>
+    <script src="../static/echarts.js"></script>
+</head>
+
+<body>
+
+<!--<input type="button" value="持有者信息" id="holders_btn">-->
+<!--<input type="button" value="币信息" id="coin_btn">-->
+<span  id="holders_btn">Blockcola币信息</span>
+<span  id="coin_btn">其他币信息</span>
+<span  id="table_text_name">账户实时信息</span>
+<span  id="line_text_name">货币总持有量实时信息</span>
+<hr>
+<span id="holders_t"></span>
+<span id="coin_t"></span>
+<div id="bar_holders"></div>
+<div id="line_coin"></div>
+
+
+
+<script>
+    js_object = '{{ dic_holder | safe }}'
+<!--    console.log(js_object)-->
+
+    console.log(typeof(js_object))
+    var str2=js_object.substring(1,js_object.length-1);
+    var obj = eval(str2)
+    var obj1 = obj[0]
+    console.log(obj1.index.length)
+<!--    输出50-->
+    console.log(obj1)
+<!--    console.log(obj1)-->
+<!--    console.log(obj1.index[0][0])-->
+<!--    console.log(obj1.index[0].length)-->
+    <!--输出5-->
+
+        js_object1 = '{{ dic_crawler | safe }}'
+<!--    console.log(js_object)-->
+    console.log(typeof(js_object))
+    var str5=js_object1.substring(1,js_object1.length-1);
+    var obj_c = eval(str5)
+    var obj_crawler = obj_c[0]
+<!--    console.log(obj1.index.length)-->
+<!--&lt;!&ndash;    输出50&ndash;&gt;-->
+<!--    console.log(obj1.index[0])-->
+    console.log(obj_crawler)
+<!--    console.log(obj1.index[0][0])-->
+<!--    console.log(obj1.index[0].length)-->
+</script>
+
+<script src="../static/javascript.js"></script>
+
+// 每15秒进行一次数据请求,并进行数据的刷新
+<script>
+    setInterval(function name(params) {
+
+    $.ajax({
+        url:'http://127.0.0.1:5000/holders',
+        error:function () {
+            console.log('holders网页请求失败！')
+        },
+        success:function () {
+
+            console.log('holders网页请求成功！')
+            var js_object = '{{ dic_holder1 | safe }}'
+            var str2=js_object.substring(1,js_object.length-1);
+            var obj = eval(str2)
+            var obj1 = obj[0]
+            console.log(obj1)
+            holder_data_update(obj1)
+        },
+    })
+
+    $.ajax({
+        url:'http://127.0.0.1:5000/crawler',
+        error:function () {
+            console.log('crawler网页请求失败！')
+        },
+        success:function () {
+            console.log('crawler网页请求成功！')
+            var js_object1 = '{{ dic_crawler1 | safe }}'
+            var str5=js_object1.substring(1,js_object1.length-1);
+            var obj_c = eval(str5)
+            var obj_crawler = obj_c[0]
+            console.log(obj_crawler)
+            coin_data_update(obj_crawler)
+        },
+    })
+    },60000)
+</script>
+</body>
+</html>

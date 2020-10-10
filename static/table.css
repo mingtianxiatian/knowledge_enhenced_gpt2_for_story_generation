@@ -1,0 +1,44 @@
+/* fenge */
+#holders_t{position: absolute;left: 87px;top: 140px;}
+#coin_t{position: absolute;left: 100px;top: 90px;}
+
+#holders_btn{position: absolute;left: 665px;top: 30px;cursor: pointer;font-size: 18px;border-bottom: 3px solid #fe815f;font-weight: bold;}
+#coin_btn{position: absolute;left: 825px;top: 30px;cursor: pointer;font-size: 15px;border-bottom: 3px solid #fe815f;font-weight: bold;color: lightgray;}
+
+hr{position: relative;top: 55px;}
+#table_text_name{position: absolute;left: 57px;top: 100px;font-family: 微软雅黑;font-size: 20px;font-weight: bold;}
+#line_text_name{position: absolute;left: 780px;top: 100px;font-family: 微软雅黑;font-size: 20px;font-weight: bold;}
+
+/*#rowCell1{background-color: red;color: red;}*/
+#bar_holders{position: absolute;left: 500px;top: 2800px;width: 600px;height: 400px;}
+#line_coin{position: absolute;left: 770px;top: 150px;width: 700px;height: 500px;}
+
+
+
+table {
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
+    /* border: 1px solid #d4d4d4; */
+}
+
+#table_row{border-bottom: 1px solid #ebe8e8;}
+/* #t{background-color: red;} */
+
+td {
+    /* padding: 10px 30px; */
+    text-align: center;vertical-align: middle;
+    line-height: 50px;
+    width: auto;
+}
+th {
+    /* padding: 10px 30px; */
+    text-align: center;vertical-align: middle;
+    line-height: 50px;
+    width: auto;
+    border-bottom: 1px solid #d4d4d4;
+    color: #7d7f80;
+    font-size: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
